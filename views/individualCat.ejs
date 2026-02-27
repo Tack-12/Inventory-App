@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Items</title>
+    <link rel="stylesheet" href="/indedit.css">
+</head>
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/categories">Categories</a>
+    </nav>
+
+    <div class="container">
+        <% if (items.length === 0) { %>
+            <p>No items found in this category.</p>
+        <% } else { %>
+            <% items.forEach(item => { %>
+                <div class="item-card">
+                    <% if (item.image_link) { %>
+                        <img src="<%= item.image_link %>" alt="<%= item.name %>">
+                    <% } else { %>
+                        <img src="/placeholder.png" alt="No image">
+                    <% } %>
+                    <h3><%= item.name %></h3>
+                    <p><%= item.description || "No description provided" %></p>
+                    <span>$<%= item.price %></span>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+
+</body>
+</html>

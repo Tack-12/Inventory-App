@@ -1,14 +1,33 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css"> 
 </head>
-
 <body>
-    <a href="/editCategory"> Edit Category </a>
-</body>
 
+    <nav>
+        <% categories.forEach(category => { %>
+            <a href="/category/<%= category.category_id %>"><%= category.name %></a>
+        <% }) %>
+    </nav>
+
+    <div class="container">
+        <% items.forEach(item => { %>
+            <div class="item-card">
+                <img src="<%= item.image_link %>" alt="<%= item.name %>">
+                <h3><%= item.name %></h3>
+                <p><%= item.description %></p>
+                <p>Category ID: <%= item.cat_id %></p>
+                <span>$<%= item.price %></span>
+            </div>
+        <% }) %>
+    </div>
+
+    <a href="/editCategory"><button>EDIT CATEGORY</button></a>
+    <a href="/editItem"><button>EDIT ITEM</button></a>
+
+</body>
 </html>
