@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/edit.css">
 </head>
+
 <body>
 
     <h2>Add Item</h2>
@@ -23,11 +27,11 @@
 
         <label for="cat_id">Select Category:</label>
         <select name="cat_id" required>
-            <% categories.forEach(category => { %>
+            <% categories.forEach(category=> { %>
                 <option value="<%= category.category_id %>">
                     ID: <%= category.category_id %> - <%= category.name %>
                 </option>
-            <% }) %>
+                <% }) %>
         </select>
         <br><br>
 
@@ -45,15 +49,18 @@
         <label for="item_id">Select Item:</label>
 
         <select name="item_id" required>
-            <% items.forEach(item => { %>
+            <% items.forEach(item=> { %>
                 <option value="<%= item.item_id %>">
                     ID: <%= item.item_id %> - <%= item.name %> ($<%= item.price %>)
                 </option>
-            <% }) %>
+                <% }) %>
         </select>
 
         <button type="submit">Delete</button>
     </form>
+    
+    <a href="/"><button> GET BACK TO HOME </button></a>
 
 </body>
+
 </html>

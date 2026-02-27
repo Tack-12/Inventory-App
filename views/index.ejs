@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/styles.css"> 
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
+
 <body>
 
     <nav>
-        <% categories.forEach(category => { %>
-            <a href="/category/<%= category.category_id %>"><%= category.name %></a>
-        <% }) %>
+        <% categories.forEach(category=> { %>
+            <a href="/category/<%= category.category_id %>">
+                <%= category.name %>
+            </a>
+            <% }) %>
     </nav>
 
     <div class="container">
-        <% items.forEach(item => { %>
+        <% items.forEach(item=> { %>
             <div class="item-card">
                 <img src="<%= item.image_link %>" alt="<%= item.name %>">
-                <h3><%= item.name %></h3>
-                <p><%= item.description %></p>
-                <p>Category ID: <%= item.cat_id %></p>
+                <h3>
+                    <%= item.name %>
+                </h3>
+                <p>
+                    <%= item.description %>
+                </p>
+                <p>Category ID: <%= item.cat_id %>
+                </p>
                 <span>$<%= item.price %></span>
             </div>
-        <% }) %>
+            <% }) %>
     </div>
 
-    <a href="/editCategory"><button>EDIT CATEGORY</button></a>
-    <a href="/editItem"><button>EDIT ITEM</button></a>
-
+    <div class="button-container">
+        <a href="/editCategory"><button>EDIT CATEGORY</button></a>
+        <a href="/editItem"><button>EDIT ITEM</button></a>
+    </div>
 </body>
+
 </html>
